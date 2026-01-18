@@ -1,0 +1,32 @@
+{
+    "sources": [
+        {
+            "type": "website",
+            "url": "https://books.toscrape.com/index.html",
+            "max_pages": 2
+        },
+        {
+            "type": "api",
+            "url": "https://jsonplaceholder.typicode.com/users"
+        },
+        {
+            "type": "file",
+            "path": "output/sample_data.csv"
+        }
+    ],
+    "export": {
+        "csv": {
+            "enabled": true,
+            "path": "output/result.csv"
+        },
+        "excel": {
+            "enabled": true,
+            "path": "output/result.xlsx"
+        },
+        "gsheet": {
+            "enabled": false,
+            "credentials_path": "credentials.json",
+            "spreadsheet_name": "Extracted Data"
+        }
+    }
+}

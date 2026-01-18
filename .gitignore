@@ -1,0 +1,45 @@
+```gitignore
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Output files (keep structure, ignore data)
+output/*.csv
+output/*.xlsx
+output/*.log
+!output/.gitkeep
+
+# Credentials (IMPORTANT: never commit these)
+credentials.json
+*.pem
+*.key
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
