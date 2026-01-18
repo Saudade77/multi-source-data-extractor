@@ -56,19 +56,19 @@ python main.py
 ```
 
 ## Demo Output
-INFO - Multi-Source Data Extractor Started
-INFO - Scraping page 1: https://books.toscrape.com/index.html
-INFO - Page 1 completed, extracted 20 books
-INFO - Scraping page 2: https://books.toscrape.com/catalogue/page-2.html
-INFO - Page 2 completed, extracted 20 books
-INFO - Website scraping completed, total 40 records
-INFO - API extraction completed, total 10 records
-INFO - File reading completed, total 3 records
-INFO - All sources combined, total 53 records
-INFO - Data cleaning completed, final records: 53
-INFO - CSV export successful: output/result.csv
-INFO - Excel export successful: output/result.xlsx
-INFO - Task Completed!
+* INFO - Multi-Source Data Extractor Started
+* INFO - Scraping page 1: https://books.toscrape.com/index.html
+* INFO - Page 1 completed, extracted 20 books
+* INFO - Scraping page 2: https://books.toscrape.com/catalogue/page-2.html
+* INFO - Page 2 completed, extracted 20 books
+* INFO - Website scraping completed, total 40 records
+* INFO - API extraction completed, total 10 records
+* INFO - File reading completed, total 3 records
+* INFO - All sources combined, total 53 records
+* INFO - Data cleaning completed, final records: 53
+* INFO - CSV export successful: output/result.csv
+* INFO - Excel export successful: output/result.xlsx
+* INFO - Task Completed!
 
 ## Sample Data Output
 ![alt text](image.png)
@@ -112,22 +112,23 @@ Edit config.json to customize sources and exports:
 
 ## Project Structure
 multi-source-data-extractor/
-├── extractors/
-│   ├── web_extractor.py      # Website scraping
-│   ├── api_extractor.py      # REST API calls
-│   └── file_extractor.py     # CSV/Excel reading
-├── processors/
-│   └── cleaner.py            # Data cleaning
-├── exporters/
-│   ├── csv_exporter.py       # CSV export
-│   ├── excel_exporter.py     # Excel export
-│   └── gsheet_exporter.py    # Google Sheets export
-├── utils/
-│   └── logger.py             # Logging setup
-├── output/                   # Generated files
-├── main.py                   # Entry point
-├── config.json               # Configuration
-├── requirements.txt          # Dependencies
+|-- extractors/
+|   |-- web_extractor.py
+|   |-- api_extractor.py
+|   |-- file_extractor.py
+|-- processors/
+|   |-- cleaner.py
+|-- exporters/
+|   |-- csv_exporter.py
+|   |-- excel_exporter.py
+|   |-- gsheet_exporter.py
+|-- utils/
+|   |-- logger.py
+|-- output/
+|-- main.py
+|-- config.json
+|-- requirements.txt
+|-- README.md
 └── README.md
 
 ## Tech Stack
