@@ -111,25 +111,26 @@ Edit config.json to customize sources and exports:
 ```
 
 ## Project Structure
-multi-source-data-extractor/
-|-- extractors/
-|   |-- web_extractor.py
-|   |-- api_extractor.py
-|   |-- file_extractor.py
-|-- processors/
-|   |-- cleaner.py
-|-- exporters/
-|   |-- csv_exporter.py
-|   |-- excel_exporter.py
-|   |-- gsheet_exporter.py
-|-- utils/
-|   |-- logger.py
-|-- output/
-|-- main.py
-|-- config.json
-|-- requirements.txt
-|-- README.md
-└── README.md
+## Project Structure
+
+    multi-source-data-extractor/
+        extractors/
+            web_extractor.py
+            api_extractor.py
+            file_extractor.py
+        processors/
+            cleaner.py
+        exporters/
+            csv_exporter.py
+            excel_exporter.py
+            gsheet_exporter.py
+        utils/
+            logger.py
+        output/
+        main.py
+        config.json
+        requirements.txt
+        README.md
 
 ## Tech Stack
 
