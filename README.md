@@ -1,87 +1,71 @@
-好的，我来帮你创建所有需要的文件：
-
-1. 创建 README.md
+直接复制以下全部内容，粘贴到 README.md 文件中：
 markdownDownloadCopy code# Multi-Source Data Extractor
 
-A Python-based ETL (Extract, Transform, Load) tool that collects data from multiple sources, cleans and validates it, then exports to various formats.
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+A production-ready Python ETL pipeline that extracts data from multiple sources (websites, APIs, files), performs data cleaning and validation, then exports to CSV, Excel, or Google Sheets.
 
 ## Features
 
-- **Multi-Source Extraction**
-  - Web scraping with pagination support
-  - REST API integration
-  - Local file parsing (CSV, Excel)
+**Data Extraction**
+- Web scraping with BeautifulSoup (pagination support)
+- REST API integration with JSON handling
+- Local file reading (CSV, Excel)
 
-- **Data Processing**
-  - Automatic duplicate removal
-  - Price and rating normalization
-  - Data validation with quality flags
+**Data Processing**
+- Duplicate removal
+- Price standardization (currency symbol stripping)
+- Rating conversion (text to numeric)
+- Data validation with quality flags
 
-- **Flexible Export**
-  - CSV (UTF-8 encoded)
-  - Excel with auto-adjusted columns
-  - Google Sheets integration
+**Export Options**
+- CSV with UTF-8 encoding
+- Excel with auto-resized columns
+- Google Sheets (optional, requires credentials)
 
-- **Production Ready**
-  - Comprehensive logging system
-  - JSON-based configuration
-  - Error handling and recovery
+**Production Ready**
+- Comprehensive logging (console + file)
+- JSON configuration (no code changes needed)
+- Graceful error handling (404s, missing files, malformed data)
 
-## Project Structure
+## Quick Start
 
-multi-source-data-extractor/
-├── main.py                 # Entry point
-├── config.json             # Configuration file
-├── requirements.txt        # Dependencies
-├── extractors/
-│   ├── init.py
-│   ├── web_extractor.py    # Web scraping module
-│   ├── api_extractor.py    # API integration module
-│   └── file_extractor.py   # File parsing module
-├── processors/
-│   ├── init.py
-│   └── cleaner.py          # Data cleaning module
-├── exporters/
-│   ├── init.py
-│   ├── csv_exporter.py     # CSV export module
-│   ├── excel_exporter.py   # Excel export module
-│   └── gsheet_exporter.py  # Google Sheets export module
-├── utils/
-│   ├── init.py
-│   └── logger.py           # Logging configuration
-└── output/                 # Generated files
+**1. Clone and Setup**
 
-## Installation
+```bash
+git clone https://github.com/YOUR_USERNAME/multi-source-data-extractor.git
+cd multi-source-data-extractor
+python -m venv venv
+2. Activate Virtual Environment
+bashDownloadCopy code# Windows PowerShell
+venv\Scripts\Activate.ps1
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/multi-source-data-extractor.git
-   cd multi-source-data-extractor
+# Windows CMD
+venv\Scripts\activate.bat
 
-
-1. 
-Create virtual environment
-bashDownloadCopy codepython -m venv venv
-
-# Windows
-.\venv\Scripts\activate
-
-# macOS/Linux
+# Linux / macOS
 source venv/bin/activate
-
-2. 
-Install dependencies
+3. Install Dependencies
 bashDownloadCopy codepip install -r requirements.txt
-
-
-Usage
-Basic Usage
+4. Run
 bashDownloadCopy codepython main.py
+Demo Output
+INFO - Multi-Source Data Extractor Started
+INFO - Scraping page 1: https://books.toscrape.com/index.html
+INFO - Page 1 completed, extracted 20 books
+INFO - Scraping page 2: https://books.toscrape.com/catalogue/page-2.html
+INFO - Page 2 completed, extracted 20 books
+INFO - Website scraping completed, total 40 records
+INFO - API extraction completed, total 10 records
+INFO - File reading completed, total 3 records
+INFO - All sources combined, total 53 records
+INFO - Data cleaning completed, final records: 53
+INFO - CSV export successful: output/result.csv
+INFO - Excel export successful: output/result.xlsx
+INFO - Task Completed!
+
+Sample Data Output
+titleprice_cleanrating_numericsourceis_validA Light in the Attic51.773websiteTrueTipping the Velvet53.741websiteTrueLeanne GrahamNaNNaNapiFalseBook A10.004fileTrue
 Configuration
-Edit config.json to customize data sources and export options:
+Edit config.json to customize sources and exports:
 jsonDownloadCopy code{
   "sources": [
     {
@@ -99,31 +83,69 @@ jsonDownloadCopy code{
     }
   ],
   "export": {
-    "csv": { "enabled": true, "path": "output/result.csv" },
-    "excel": { "enabled": true, "path": "output/result.xlsx" },
-    "gsheet": { "enabled": false }
+    "csv": {
+      "enabled": true,
+      "path": "output/result.csv"
+    },
+    "excel": {
+      "enabled": true,
+      "path": "output/result.xlsx"
+    },
+    "gsheet": {
+      "enabled": false,
+      "credentials_path": "credentials.json",
+      "spreadsheet_name": "Extracted Data"
+    }
   }
 }
-Google Sheets Export (Optional)
+Project Structure
+multi-source-data-extractor/
+├── extractors/
+│   ├── web_extractor.py      # Website scraping
+│   ├── api_extractor.py      # REST API calls
+│   └── file_extractor.py     # CSV/Excel reading
+├── processors/
+│   └── cleaner.py            # Data cleaning
+├── exporters/
+│   ├── csv_exporter.py       # CSV export
+│   ├── excel_exporter.py     # Excel export
+│   └── gsheet_exporter.py    # Google Sheets export
+├── utils/
+│   └── logger.py             # Logging setup
+├── output/                   # Generated files
+├── main.py                   # Entry point
+├── config.json               # Configuration
+├── requirements.txt          # Dependencies
+└── README.md
 
-1. Create a Google Cloud project and enable Google Sheets API
-2. Download service account credentials as credentials.json
-3. Set gsheet.enabled to true in config.json
-
-Sample Output
-titlepriceprice_cleanratingrating_numericsourceA Light in the Attic£51.7751.77Three3websiteTipping the Velvet£53.7453.74One1websiteSoumission£50.1050.10One1website
 Tech Stack
 
-* Python 3.10+
-* requests - HTTP client
-* BeautifulSoup4 - HTML parsing
-* pandas - Data manipulation
-* openpyxl - Excel file handling
-* gspread - Google Sheets API
+* Python 3.8+
+* Pandas (data manipulation)
+* Requests (HTTP client)
+* BeautifulSoup4 (HTML parsing)
+* OpenPyXL (Excel export)
+* GSpread (Google Sheets API)
+
+Google Sheets Setup (Optional)
+
+1. Go to Google Cloud Console
+2. Create a new project
+3. Enable Google Sheets API
+4. Create a Service Account and download JSON key
+5. Save as credentials.json in project root
+6. Share your Google Sheet with the service account email
+7. Set gsheet.enabled to true in config.json
+
+Use Cases
+
+* E-commerce price monitoring
+* Lead generation from multiple sources
+* Data aggregation for reporting
+* Automated data collection pipelines
+* API data backup to spreadsheets
 
 License
-MIT License - feel free to use this project for learning or commercial purposes.
+MIT License - Free for personal and commercial use.
 Author
-Your Name - GitHub 
-
-This project demonstrates proficiency in Python, web scraping, API integration, and data processing - key skills for data extraction and automation tasks.
+Built for data extraction and ETL tasks. Deployable to AWS Lambda, Google Cloud Functions, or Apache Airflow.
