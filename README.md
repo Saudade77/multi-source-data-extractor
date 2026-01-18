@@ -111,7 +111,6 @@ Edit config.json to customize sources and exports:
 ```
 
 ## Project Structure
-## Project Structure
 
     multi-source-data-extractor/
         extractors/
