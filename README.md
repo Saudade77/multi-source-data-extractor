@@ -1,5 +1,4 @@
-直接复制以下全部内容，粘贴到 README.md 文件中：
-markdownDownloadCopy code# Multi-Source Data Extractor
+# Multi-Source Data Extractor
 
 A production-ready Python ETL pipeline that extracts data from multiple sources (websites, APIs, files), performs data cleaning and validation, then exports to CSV, Excel, or Google Sheets.
 
@@ -29,13 +28,15 @@ A production-ready Python ETL pipeline that extracts data from multiple sources 
 ## Quick Start
 
 **1. Clone and Setup**
-
 ```bash
 git clone https://github.com/YOUR_USERNAME/multi-source-data-extractor.git
 cd multi-source-data-extractor
 python -m venv venv
-2. Activate Virtual Environment
-bashDownloadCopy code# Windows PowerShell
+```
+
+**2. Activate Virtual Environment**
+```bash
+# Windows PowerShell
 venv\Scripts\Activate.ps1
 
 # Windows CMD
@@ -43,11 +44,18 @@ venv\Scripts\activate.bat
 
 # Linux / macOS
 source venv/bin/activate
-3. Install Dependencies
-bashDownloadCopy codepip install -r requirements.txt
-4. Run
-bashDownloadCopy codepython main.py
-Demo Output
+```
+
+**3. Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+**4. Run**
+```bash
+python main.py
+```
+
+## Demo Output
 INFO - Multi-Source Data Extractor Started
 INFO - Scraping page 1: https://books.toscrape.com/index.html
 INFO - Page 1 completed, extracted 20 books
@@ -62,11 +70,13 @@ INFO - CSV export successful: output/result.csv
 INFO - Excel export successful: output/result.xlsx
 INFO - Task Completed!
 
-Sample Data Output
-titleprice_cleanrating_numericsourceis_validA Light in the Attic51.773websiteTrueTipping the Velvet53.741websiteTrueLeanne GrahamNaNNaNapiFalseBook A10.004fileTrue
-Configuration
+## Sample Data Output
+![alt text](image.png)
+
+## Configuration
 Edit config.json to customize sources and exports:
-jsonDownloadCopy code{
+```bash
+{
   "sources": [
     {
       "type": "website",
@@ -98,7 +108,9 @@ jsonDownloadCopy code{
     }
   }
 }
-Project Structure
+```
+
+## Project Structure
 multi-source-data-extractor/
 ├── extractors/
 │   ├── web_extractor.py      # Website scraping
@@ -118,7 +130,7 @@ multi-source-data-extractor/
 ├── requirements.txt          # Dependencies
 └── README.md
 
-Tech Stack
+## Tech Stack
 
 * Python 3.8+
 * Pandas (data manipulation)
@@ -127,7 +139,7 @@ Tech Stack
 * OpenPyXL (Excel export)
 * GSpread (Google Sheets API)
 
-Google Sheets Setup (Optional)
+## Google Sheets Setup (Optional)
 
 1. Go to Google Cloud Console
 2. Create a new project
@@ -137,7 +149,7 @@ Google Sheets Setup (Optional)
 6. Share your Google Sheet with the service account email
 7. Set gsheet.enabled to true in config.json
 
-Use Cases
+## Use Cases
 
 * E-commerce price monitoring
 * Lead generation from multiple sources
@@ -145,7 +157,7 @@ Use Cases
 * Automated data collection pipelines
 * API data backup to spreadsheets
 
-License
+## License
 MIT License - Free for personal and commercial use.
-Author
+
 Built for data extraction and ETL tasks. Deployable to AWS Lambda, Google Cloud Functions, or Apache Airflow.
